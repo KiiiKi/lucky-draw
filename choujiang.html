@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta http-equiv ="Content-Type" content ="text/html; charset =UTF-8" />
+    <meta http-equiv ="cache-Control" content ="no-cache, no-store, must-revalidate" />
+    <meta http-equiv ="pragma" content ="no-cache">
+    <meta http-equiv ="expires" content ="0">
+    <meta content ="width =device-width,height =device-height, initial-scale =1.0, maximum-scale =1.0, user-scalable =0" name ="viewport">
+    <meta charset ="UTF-8">
+    <title>抽奖转盘</title>
+    <!--有时间改成ajax后台抽奖-->
+    <link type = "text/css" rel = "styleSheet"  href = "choujiang.css" />
+    <script src = "http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src = " https://unpkg.com/vue@2.5.16/dist/vue.min.js"></script>
+    <script src = " http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+    <script src = " ./jQueryRotate.js"></script>
+</head>
+<body>
+    <div id = "div-box">
+        <div id = "turntable">
+            <img id = "circle" width =100% src = "./circle1.png">
+            <img id = "finger"  src = "./finger.png">
+        </div>
+        
+        <div id = "but" v-on:click = "mychance">您还有{{chance}}次机会</div>
+        <div id= "inform" v-if = "inform" v-html = "msg"></div>
+        <div id = "confirm" v-if = "showprize">
+            <div id="tongzhi">
+                <p v-if = "msg2">抱歉，抽奖机会已用完哦！</p>
+                <p v-if = "msg1">恭喜您获得{{prize[prize.length-1]}}!</p>
+                <!--再插入图片-->
+                <div id = "btn" v-on:click = "receive">知道啦！</div>
+            </div>
+        </div>
+    </div>
+    <script type = "text/javascript" src = "choujiang.js"></script>
+</body>
+</html>
